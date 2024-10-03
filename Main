@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+class Solution {
+    public static int rotateDelete(ArrayList<Integer> arr) {
+        int n = arr.size();
+        int temp = n / 2;
+        int i = 3 * (temp / 2);
+        if (temp % 2 == 1) i++;
+        return arr.get(n - i);
+    }
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(br.readLine()); 
+        while (t-- > 0) {
+            String line = br.readLine(); 
+            String[] tokens = line.split(" "); 
+            ArrayList<Integer> arr = new ArrayList<>();
+            for (String token : tokens) {
+                arr.add(Integer.parseInt(token)); 
+            }
+            int res = rotateDelete(arr); 
+            System.out.println(res); 
+        }
+    }
+}
